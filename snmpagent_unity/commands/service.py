@@ -13,6 +13,10 @@ def _stop():
     return agentd.agent_daemon.stop()
 
 
+def _run(conf_file):
+    return agentd.main(conf_file)
+
+
 def _get_running_conf():
     return agentd.agent_daemon.get_running_conf()
 
@@ -54,6 +58,27 @@ examples:
     @utils.log_command_exception
     def do(self):
         return _stop()
+
+
+class Run(base.BaseCommand):
+    """
+Dell-EMC SNMP agent: run the SNMP agent.
+
+usage:
+    snmpagent-unity run --conf_file /tmp/agent.conf
+
+options:
+    --conf_file <conf_file>     Agent configuration file path
+
+examples:
+    snmpagent-unity run --conf_file /tmp/agent.conf
+    """
+    name = 'run'
+    log_to_stdout = True
+
+    @utils.log_command_exception
+    def do(self):
+        return _run(self.args['--conf_file'])
 
 
 class Restart(base.BaseCommand):

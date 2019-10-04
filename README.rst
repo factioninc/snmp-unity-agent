@@ -124,6 +124,22 @@ Restart a SNMP agent. An error will occur if not running daemon found.
 
     snmpagent-unity stop
 
+Docker & Foreground service
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When running in docker, it has to be run in foreground, cli allows this
+
+.. code-block:: console
+
+    snmpagent-unity run --conf_file <file_path>
+
+Start a SNMP agent in the foreground with the specified configuration
+file ``<file_path>``.
+
+.. code-block:: console
+
+    docker run -v /path/to/config.conf:/app/config.conf -p 11161:11161/udp fctninc/snmp-unity-agent:latest run --conf_file /app/config.conf
+
 SNMP user management
 ^^^^^^^^^^^^^^^^^^^^
 - Create a SNMP v2 community

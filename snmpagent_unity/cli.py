@@ -20,6 +20,7 @@ supported commands:
     start                   Start a SNMP agent daemon
     stop                    Stop the SNMP agent daemon
     restart                 Restart the SNMP agent daemon
+    run                     Run the agent in foreground (for docker)
 
 examples:
     snmpagent-unity --help
