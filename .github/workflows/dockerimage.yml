@@ -13,7 +13,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag fctninc/snmp-unity-agent:$(date +%s)
 
-    - name: Publish to Registry
+    - name: Publish to Docker Hub
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: fctninc/snmp-unity-agent
